@@ -35,6 +35,16 @@ const InvitePage = async ({ params }: InvitePageProps) => {
 		return redirect(`/servers/${alreadyInServer.id}`);
 	}
 
+	const serverNotFound = await db.server.findFirst({
+		where: {
+			inviteCode: params.inviteCode,
+		},
+	});
+
+	if (!serverNotFound) {
+		return redirect(`/`);
+	}
+
 	const server = await db.server.update({
 		where: {
 			inviteCode: params.inviteCode,
