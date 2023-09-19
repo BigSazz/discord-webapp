@@ -3,7 +3,7 @@ import { redirectToSignIn } from '@clerk/nextjs';
 
 import { getCurrentProfile } from '@/lib/currentProfile';
 import { db } from '@/lib/db';
-import { ServerSidebar } from '@/components/server/serverSidebar';
+import { ServerSidebar } from '@/components/server/ServerSidebar';
 
 const ServerLayout = async ({
 	children,
